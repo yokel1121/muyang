@@ -1,0 +1,197 @@
+name: Patch admissions page
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply admissions page patch
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import sys
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+          if "admission-official" in text and "sourceLink(item)" in text:
+              print("index.html already patched")
+              raise SystemExit(0)
+
+          replacements = [
+              (
+                  '''.admission-block p,
+.admission-source {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+''',
+                  '''.admission-block p,
+.admission-official,
+.admission-source {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.admission-official {
+  padding: 8px 9px;
+  border-radius: 6px;
+  color: #36506b;
+  background: #eef6ff;
+}
+'''
+              ),
+              (
+                  '''  grid-template-columns: 54px 64px 1fr 72px;''',
+                  '''  grid-template-columns: 50px 56px 1fr 64px minmax(76px, 1fr);'''
+              ),
+              (
+                  '''.history-table div span:first-child {
+  color: var(--ink);
+  font-weight: 850;
+}
+''',
+                  '''.history-table div span:first-child {
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.history-table a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.history-table a:hover {
+  text-decoration: underline;
+}
+'''
+              ),
+              (
+                  '''      : "导入近三年省考试院投档线 CSV 后，院校排序、冲稳保和详情会优先使用真实分数/位次预测。";''',
+                  '''      : "导入近三年官方投档线 CSV 后，院校排序、冲稳保和详情会优先使用真实分数/位次预测。";'''
+              ),
+              (
+                  '''      : "字段建议：年份、生源省份、科类、批次、院校名称、院校专业组、专业、计划数、最低分、最低位次。";''',
+                  '''      : "字段建议：年份、生源省份、科类、批次、院校名称、院校专业组、专业、计划数、最低分、最低位次、数据来源、来源链接。";'''
+              ),
+              (
+                  '''      "年份,生源省份,科类,批次,院校名称,院校专业组,专业,计划数,最低分,最低位次",
+      "2025,河南省,物理,普通本科批,示例大学,001,计算机类,12,586,42000",
+      "2024,河南省,理科,本科一批,示例大学,,计算机类,10,579,43800",
+      "2023,河南省,理科,本科一批,示例大学,,计算机类,9,574,45200",''',
+                  '''      "年份,生源省份,科类,批次,院校名称,院校专业组,专业,计划数,最低分,最低位次,数据来源,来源链接",
+      "2025,河南省,物理,普通本科批,示例大学,001,计算机类,12,586,42000,河南省教育考试院,https://example.gov.cn/admission-2025",
+      "2024,河南省,理科,本科一批,示例大学,,计算机类,10,579,43800,阳光高考公开页,https://gaokao.chsi.com.cn/",
+      "2023,河南省,理科,本科一批,示例大学,,计算机类,9,574,45200,高校招生网,https://example.edu.cn/admit",'''
+              ),
+              (
+                  '''        minScore: numberValue(record.minScore),
+        minRank: numberValue(record.minRank),
+      };''',
+                  '''        minScore: numberValue(record.minScore),
+        minRank: numberValue(record.minRank),
+        source: record.source || "",
+        sourceUrl: record.sourceUrl || "",
+      };'''
+              ),
+              (
+                  '''    const aliases = ["year", "province", "subject", "batch", "school", "group", "major", "plan", "minscore", "minrank"];
+    if (aliases.includes(lower)) return lower === "minscore" ? "minScore" : lower === "minrank" ? "minRank" : lower;''',
+                  '''    const aliases = ["year", "province", "subject", "batch", "school", "group", "major", "plan", "minscore", "minrank", "source", "sourceurl"];
+    if (aliases.includes(lower)) {
+      if (lower === "minscore") return "minScore";
+      if (lower === "minrank") return "minRank";
+      if (lower === "sourceurl") return "sourceUrl";
+      return lower;
+    }'''
+              ),
+              (
+                  '''      录取最低位次: "minRank",
+      位次: "minRank",
+    };''',
+                  '''      录取最低位次: "minRank",
+      位次: "minRank",
+      数据来源: "source",
+      来源: "source",
+      来源名称: "source",
+      来源链接: "sourceUrl",
+      数据链接: "sourceUrl",
+      原文链接: "sourceUrl",
+    };'''
+              ),
+              (
+                  '''        record.major || "",
+      ].join("|");''',
+                  '''        record.major || "",
+        record.sourceUrl || "",
+      ].join("|");'''
+              ),
+              (
+                  '''              <span>${item.plan ? `${item.plan}人` : "计划待核"}</span>
+            </div>''',
+                  '''              <span>${item.plan ? `${item.plan}人` : "计划待核"}</span>
+              <span>${sourceLink(item)}</span>
+            </div>'''
+              ),
+              (
+                  '''  function confidenceLabel(plan, gap) {''',
+                  '''  function sourceLink(item) {
+    const label = escapeHtml(item.source || "来源待核");
+    if (!item.sourceUrl) return label;
+    return `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener">${label}</a>`;
+  }
+
+  function confidenceLabel(plan, gap) {'''
+              ),
+              (
+                  '''        <p id="admissionDataNote">导入近三年省考试院投档线 CSV 后，院校排序、冲稳保和详情会优先使用真实分数/位次预测。</p>''',
+                  '''        <p id="admissionDataNote">导入近三年官方投档线 CSV 后，院校排序、冲稳保和详情会优先使用真实分数/位次预测。</p>'''
+              ),
+              (
+                  '''          <button class="mini-button" id="clearAdmissionData" type="button">清空</button>
+        </div>
+        <div class="admission-source" id="admissionSourceNote"></div>''',
+                  '''          <button class="mini-button" id="clearAdmissionData" type="button">清空</button>
+        </div>
+        <p class="admission-official">已接入教育部阳光高考公开页抓取脚本；公开端未统一开放的院校专业组投档线，仍需省考试院或高校官网 CSV 补齐。</p>
+        <div class="admission-source" id="admissionSourceNote"></div>'''
+              ),
+          ]
+
+          missing = []
+          for old, new in replacements:
+              if old not in text:
+                  missing.append(old.splitlines()[0][:100])
+              else:
+                  text = text.replace(old, new, 1)
+
+          if missing:
+              print("Missing expected snippets:")
+              for item in missing:
+                  print("-", item)
+              sys.exit(1)
+
+          path.write_text(text, encoding="utf-8")
+          PY
+      - name: Commit patched page
+        run: |
+          if git diff --quiet index.html; then
+            echo "No index.html changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Enhance admissions prediction data support"
+          git push
