@@ -1,0 +1,275 @@
+{
+  "generatedAt": "2026-06-27T15:45:44.940Z",
+  "sourceName": "教育部阳光高考信息平台院校信息库",
+  "sourceUrl": "https://gaokao.chsi.com.cn/sch/",
+  "note": "阳光高考公开端的“往年录取信息”多为高校自维护内容或外链；脚本只把可解析的表格写入 CSV，其余记录进入 report 供人工核验。",
+  "totals": {
+    "schools": 20,
+    "hireInfoItems": 20,
+    "structuredRecords": 0,
+    "externalLinks": 20,
+    "parseWarnings": 20
+  },
+  "schools": [
+    {
+      "id": "1",
+      "name": "北京大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-1,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "中国人民大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-2,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "清华大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-3,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "北京交通大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-4,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "北京工业大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-5,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "北京航空航天大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-6,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "北京理工大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-7,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "北京科技大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-8,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "北方工业大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-9,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "北京化工大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-10,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "北京工商大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-11,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "北京服装学院",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-12,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "北京邮电大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-13,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "14",
+      "name": "北京印刷学院",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-14,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "15",
+      "name": "北京建筑大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-15,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "16",
+      "name": "北京石油化工学院",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-16,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "17",
+      "name": "北京电子科技学院",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-17,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "18",
+      "name": "中国农业大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-18,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "19",
+      "name": "北京农学院",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-19,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "20",
+      "name": "北京林业大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-20,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    }
+  ]
+}

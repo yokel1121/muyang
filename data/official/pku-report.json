@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-06-27T15:45:20.659Z",
+  "sourceName": "教育部阳光高考信息平台院校信息库",
+  "sourceUrl": "https://gaokao.chsi.com.cn/sch/",
+  "note": "阳光高考公开端的“往年录取信息”多为高校自维护内容或外链；脚本只把可解析的表格写入 CSV，其余记录进入 report 供人工核验。",
+  "totals": {
+    "schools": 2,
+    "hireInfoItems": 2,
+    "structuredRecords": 0,
+    "externalLinks": 2,
+    "parseWarnings": 2
+  },
+  "schools": [
+    {
+      "id": "1",
+      "name": "北京大学",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-1,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    },
+    {
+      "id": "6405527",
+      "name": "北京大学医学部",
+      "listUrl": "https://gaokao.chsi.com.cn/sch/listHireInfo--schId-6405527,categoryId-26199,mindex-6.dhtml",
+      "hireInfoItems": 1,
+      "records": 0,
+      "externalLinks": [
+        "https://www.gotopku.cn/programa/admitline/7.html"
+      ],
+      "warnings": [
+        "未解析到结构化表格：北京大学历年录取分数线"
+      ]
+    }
+  ]
+}

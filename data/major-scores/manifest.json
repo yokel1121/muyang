@@ -1,0 +1,599 @@
+{
+  "generatedAt": "2026-06-28T10:23:20.240124+00:00",
+  "source": "各专业分数线/22-25年全国高校在各省的专业录取分数",
+  "version": 1,
+  "subjectCodes": {
+    "0": "物理",
+    "1": "历史",
+    "2": "综合"
+  },
+  "levelCodes": {
+    "0": "本科",
+    "1": "专科"
+  },
+  "provinces": {
+    "上海市": {
+      "file": "shanghai.json.gz",
+      "encoding": "gzip",
+      "shortName": "上海",
+      "rawRows": 20236,
+      "keptRows": 20114,
+      "records": 12965,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "综合": 20114
+      },
+      "sourceFile": "22-25年全国高校在上海的专业录取分数_副本.xlsx"
+    },
+    "云南省": {
+      "file": "yunnan.json.gz",
+      "encoding": "gzip",
+      "shortName": "云南",
+      "rawRows": 95441,
+      "keptRows": 95111,
+      "records": 50910,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 32586,
+        "物理": 62525
+      },
+      "sourceFile": "22-25年全国高校在云南的专业录取分数_副本.xlsx"
+    },
+    "内蒙古自治区": {
+      "file": "neimenggu.json.gz",
+      "encoding": "gzip",
+      "shortName": "内蒙古",
+      "rawRows": 82627,
+      "keptRows": 81033,
+      "records": 45590,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 25891,
+        "物理": 55142
+      },
+      "sourceFile": "22-25年全国高校在内蒙古的专业录取分数_副本.xlsx"
+    },
+    "北京市": {
+      "file": "beijing.json.gz",
+      "encoding": "gzip",
+      "shortName": "北京",
+      "rawRows": 17661,
+      "keptRows": 17025,
+      "records": 10171,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "综合": 17025
+      },
+      "sourceFile": "22-25年全国高校在北京的专业录取分数_副本.xlsx"
+    },
+    "吉林省": {
+      "file": "jilin.json.gz",
+      "encoding": "gzip",
+      "shortName": "吉林",
+      "rawRows": 69697,
+      "keptRows": 69501,
+      "records": 45871,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 21590,
+        "物理": 47911
+      },
+      "sourceFile": "22-25年全国高校在吉林的专业录取分数_副本.xlsx"
+    },
+    "四川省": {
+      "file": "sichuan.json.gz",
+      "encoding": "gzip",
+      "shortName": "四川",
+      "rawRows": 135187,
+      "keptRows": 134487,
+      "records": 69618,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 46713,
+        "物理": 87774
+      },
+      "sourceFile": "22-25年全国高校在四川的专业录取分数_副本.xlsx"
+    },
+    "天津市": {
+      "file": "tianjin.json.gz",
+      "encoding": "gzip",
+      "shortName": "天津",
+      "rawRows": 38026,
+      "keptRows": 37903,
+      "records": 28512,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "综合": 37903
+      },
+      "sourceFile": "22-25年全国高校在天津的专业录取分数_副本.xlsx"
+    },
+    "宁夏回族自治区": {
+      "file": "ningxia.json.gz",
+      "encoding": "gzip",
+      "shortName": "宁夏",
+      "rawRows": 28343,
+      "keptRows": 28221,
+      "records": 19751,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 7815,
+        "物理": 20406
+      },
+      "sourceFile": "22-25年全国高校在宁夏的专业录取分数_副本.xlsx"
+    },
+    "安徽省": {
+      "file": "anhui.json.gz",
+      "encoding": "gzip",
+      "shortName": "安徽",
+      "rawRows": 108180,
+      "keptRows": 107330,
+      "records": 90466,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 32737,
+        "物理": 74593
+      },
+      "sourceFile": "22-25年全国高校在安徽的专业录取分数.xlsx"
+    },
+    "山东省": {
+      "file": "shandong.json.gz",
+      "encoding": "gzip",
+      "shortName": "山东",
+      "rawRows": 124870,
+      "keptRows": 124161,
+      "records": 53655,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "综合": 124161
+      },
+      "sourceFile": "22-25年全国高校在山东的专业录取分数_副本.xlsx"
+    },
+    "山西省": {
+      "file": "shanxi.json.gz",
+      "encoding": "gzip",
+      "shortName": "山西",
+      "rawRows": 100024,
+      "keptRows": 99662,
+      "records": 58757,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 31764,
+        "物理": 67898
+      },
+      "sourceFile": "22-25年全国高校在山西的专业录取分数_副本.xlsx"
+    },
+    "广东省": {
+      "file": "guangdong.json.gz",
+      "encoding": "gzip",
+      "shortName": "广东",
+      "rawRows": 94484,
+      "keptRows": 93665,
+      "records": 67489,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 30967,
+        "物理": 62698
+      },
+      "sourceFile": "22-25年全国高校在广东的专业录取分数_副本.xlsx"
+    },
+    "广西壮族自治区": {
+      "file": "guangxi.json.gz",
+      "encoding": "gzip",
+      "shortName": "广西",
+      "rawRows": 107757,
+      "keptRows": 107343,
+      "records": 76868,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 34806,
+        "物理": 72537
+      },
+      "sourceFile": "22-25年全国高校在广西的专业录取分数_副本.xlsx"
+    },
+    "新疆维吾尔自治区": {
+      "file": "xinjiang.json.gz",
+      "encoding": "gzip",
+      "shortName": "新疆",
+      "rawRows": 60478,
+      "keptRows": 60295,
+      "records": 26982,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 19519,
+        "物理": 40776
+      },
+      "sourceFile": "22-25年全国高校在新疆的专业录取分数_副本.xlsx"
+    },
+    "江苏省": {
+      "file": "jiangsu.json.gz",
+      "encoding": "gzip",
+      "shortName": "江苏",
+      "rawRows": 96423,
+      "keptRows": 95608,
+      "records": 57222,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 29386,
+        "物理": 66222
+      },
+      "sourceFile": "22-25年全国高校在江苏的专业录取分数.xlsx"
+    },
+    "江西省": {
+      "file": "jiangxi.json.gz",
+      "encoding": "gzip",
+      "shortName": "江西",
+      "rawRows": 114662,
+      "keptRows": 113820,
+      "records": 78637,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 37093,
+        "物理": 76727
+      },
+      "sourceFile": "22-25年全国高校在江西的专业录取分数_副本.xlsx"
+    },
+    "河北省": {
+      "file": "hebei.json.gz",
+      "encoding": "gzip",
+      "shortName": "河北",
+      "rawRows": 181259,
+      "keptRows": 180294,
+      "records": 78780,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 63813,
+        "物理": 116481
+      },
+      "sourceFile": "22-25年全国高校在河北的专业录取分数_副本.xlsx"
+    },
+    "河南省": {
+      "file": "henan.json.gz",
+      "encoding": "gzip",
+      "shortName": "河南",
+      "rawRows": 135269,
+      "keptRows": 134320,
+      "records": 81577,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 42572,
+        "物理": 91748
+      },
+      "sourceFile": "22-25年全国高校在河南的专业录取分数.xlsx"
+    },
+    "浙江省": {
+      "file": "zhejiang.json.gz",
+      "encoding": "gzip",
+      "shortName": "浙江",
+      "rawRows": 89588,
+      "keptRows": 89180,
+      "records": 59674,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "综合": 89180
+      },
+      "sourceFile": "22-25年全国高校在浙江的专业录取分数_副本.xlsx"
+    },
+    "海南省": {
+      "file": "hainan.json.gz",
+      "encoding": "gzip",
+      "shortName": "海南",
+      "rawRows": 32413,
+      "keptRows": 32259,
+      "records": 21535,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "综合": 32259
+      },
+      "sourceFile": "22-25年全国高校在海南的专业录取分数_副本.xlsx"
+    },
+    "湖北省": {
+      "file": "hubei.json.gz",
+      "encoding": "gzip",
+      "shortName": "湖北",
+      "rawRows": 55397,
+      "keptRows": 54904,
+      "records": 47967,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 14625,
+        "物理": 40279
+      },
+      "sourceFile": "22-25年全国高校在湖北的专业录取分数_副本.xlsx"
+    },
+    "湖南省": {
+      "file": "hunan.json.gz",
+      "encoding": "gzip",
+      "shortName": "湖南",
+      "rawRows": 78382,
+      "keptRows": 77626,
+      "records": 66837,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 21702,
+        "物理": 55924
+      },
+      "sourceFile": "22-25年全国高校在湖南的专业录取分数.xlsx"
+    },
+    "甘肃省": {
+      "file": "gansu.json.gz",
+      "encoding": "gzip",
+      "shortName": "甘肃",
+      "rawRows": 82599,
+      "keptRows": 82238,
+      "records": 61652,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 25321,
+        "物理": 56917
+      },
+      "sourceFile": "22-25年全国高校在甘肃的专业录取分数_副本.xlsx"
+    },
+    "福建省": {
+      "file": "fujian.json.gz",
+      "encoding": "gzip",
+      "shortName": "福建",
+      "rawRows": 84300,
+      "keptRows": 83810,
+      "records": 54518,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 25904,
+        "物理": 57906
+      },
+      "sourceFile": "22-25年全国高校在福建的专业录取分数_副本.xlsx"
+    },
+    "西藏自治区": {
+      "file": "xizang.json.gz",
+      "encoding": "gzip",
+      "shortName": "西藏",
+      "rawRows": 3206,
+      "keptRows": 3184,
+      "records": 2165,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 1154,
+        "物理": 2030
+      },
+      "sourceFile": "22-25年全国高校在西藏的专业录取分数_副本.xlsx"
+    },
+    "贵州省": {
+      "file": "guizhou.json.gz",
+      "encoding": "gzip",
+      "shortName": "贵州",
+      "rawRows": 130919,
+      "keptRows": 130353,
+      "records": 77864,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 41291,
+        "物理": 89062
+      },
+      "sourceFile": "22-25年全国高校在贵州的专业录取分数_副本.xlsx"
+    },
+    "辽宁省": {
+      "file": "liaoning.json.gz",
+      "encoding": "gzip",
+      "shortName": "辽宁",
+      "rawRows": 79242,
+      "keptRows": 78924,
+      "records": 34158,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 23838,
+        "物理": 55086
+      },
+      "sourceFile": "22-25年全国高校在辽宁的专业录取分数_副本.xlsx"
+    },
+    "重庆市": {
+      "file": "chongqing.json.gz",
+      "encoding": "gzip",
+      "shortName": "重庆",
+      "rawRows": 89443,
+      "keptRows": 88867,
+      "records": 40067,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 28277,
+        "物理": 60590
+      },
+      "sourceFile": "22-25年全国高校在重庆的专业录取分数.xlsx"
+    },
+    "陕西省": {
+      "file": "shaanxi.json.gz",
+      "encoding": "gzip",
+      "shortName": "陕西",
+      "rawRows": 77745,
+      "keptRows": 77554,
+      "records": 40435,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 22785,
+        "物理": 54769
+      },
+      "sourceFile": "22-25年全国高校在陕西的专业录取分数_副本.xlsx"
+    },
+    "青海省": {
+      "file": "qinghai.json.gz",
+      "encoding": "gzip",
+      "shortName": "青海",
+      "rawRows": 36444,
+      "keptRows": 36401,
+      "records": 20020,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 12172,
+        "物理": 24229
+      },
+      "sourceFile": "22-25年全国高校在青海的专业录取分数_副本.xlsx"
+    },
+    "黑龙江省": {
+      "file": "heilongjiang.json.gz",
+      "encoding": "gzip",
+      "shortName": "黑龙江",
+      "rawRows": 72822,
+      "keptRows": 72317,
+      "records": 54538,
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "subjects": {
+        "历史": 22785,
+        "物理": 49532
+      },
+      "sourceFile": "22-25年全国高校在黑龙江的专业录取分数_副本.xlsx"
+    }
+  }
+}

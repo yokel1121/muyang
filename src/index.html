@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>沐阳志愿填报系统</title>
+  <meta name="description" content="基于教育部全国普通高等学校名单的高考志愿填报模拟系统。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231d4ed8'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='white'%3E沐%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="universities.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">沐</span>
+      <div>
+        <h1>沐阳志愿填报系统</h1>
+        <p>全国普通高校库 · 冲稳保模拟 · 兴趣专业匹配</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <a class="source-link" href="http://www.moe.gov.cn/jyb_xxgk/s5743/s5744/202606/t20260618_1441074.html" target="_blank" rel="noopener">教育部名单</a>
+      <button class="icon-button" id="exportPlan" type="button" title="导出志愿方案" aria-label="导出志愿方案">
+        <span aria-hidden="true">⇩</span>
+      </button>
+      <button class="icon-button" id="resetAll" type="button" title="重置筛选" aria-label="重置筛选">
+        <span aria-hidden="true">↻</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-layout">
+    <section class="panel profile-panel" aria-labelledby="profileTitle">
+      <div class="panel-heading">
+        <span class="eyebrow">考生画像</span>
+        <h2 id="profileTitle">定位分数与偏好</h2>
+      </div>
+
+      <div class="score-card">
+        <label for="scoreInput">高考分数</label>
+        <div class="score-row">
+          <input id="scoreInput" type="number" min="100" max="900" value="586">
+          <span>分</span>
+        </div>
+        <input id="scoreRange" class="range" type="range" min="180" max="900" value="586">
+      </div>
+
+      <div class="field-grid">
+        <label>
+          生源省份
+          <select id="homeProvince"></select>
+        </label>
+        <label>
+          首选科目
+          <select id="subjectSelect">
+            <option value="物理">物理类</option>
+            <option value="历史">历史类</option>
+            <option value="综合">综合改革</option>
+            <option value="理科">理科</option>
+            <option value="文科">文科</option>
+          </select>
+        </label>
+        <label>
+          目标地区
+          <select id="targetProvince">
+            <option value="全部">全国</option>
+          </select>
+        </label>
+        <label>
+          院校层次
+          <select id="levelFilter">
+            <option value="全部">全部层次</option>
+            <option value="本科">本科</option>
+            <option value="专科">专科</option>
+          </select>
+        </label>
+        <label>
+          办学属性
+          <select id="ownershipFilter">
+            <option value="全部">不限</option>
+            <option value="公办">公办</option>
+            <option value="民办">民办</option>
+            <option value="合作办学">合作办学</option>
+          </select>
+        </label>
+        <label>
+          专业方向
+          <select id="domainFilter">
+            <option value="全部">不限方向</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="preference-block">
+        <div class="preference-head">
+          <span>策略权重</span>
+          <output id="riskOutput">均衡</output>
+        </div>
+        <input id="riskRange" class="range" type="range" min="0" max="100" value="48">
+        <div class="risk-scale">
+          <span>稳妥</span>
+          <span>冲刺</span>
+        </div>
+      </div>
+
+      <div class="admission-block">
+        <div class="admission-head">
+          <span>真实招录数据</span>
+          <strong id="admissionDataStatus">未导入</strong>
+        </div>
+        <p id="admissionDataNote">导入近三年官方投档线 CSV 后，院校排序、冲稳保和详情会优先使用真实分数/位次预测。</p>
+        <div class="admission-actions">
+          <label class="upload-button" for="admissionFile">导入CSV</label>
+          <input id="admissionFile" type="file" accept=".csv,text/csv">
+          <button class="mini-button" id="downloadAdmissionTemplate" type="button">模板</button>
+          <button class="mini-button" id="clearAdmissionData" type="button">清空</button>
+        </div>
+        <p class="admission-official">已接入教育部阳光高考公开页抓取脚本；公开端未统一开放的院校专业组投档线，仍需省考试院或高校官网 CSV 补齐。</p>
+        <div class="admission-source" id="majorScoreStatus"></div>
+        <div class="admission-source" id="admissionSourceNote"></div>
+      </div>
+
+      <div class="quick-stats" aria-label="数据概览">
+        <div>
+          <strong id="totalSchools">2952</strong>
+          <span>普通高校</span>
+        </div>
+        <div>
+          <strong id="undergraduateSchools">1412</strong>
+          <span>本科</span>
+        </div>
+        <div>
+          <strong id="vocationalSchools">1540</strong>
+          <span>专科</span>
+        </div>
+      </div>
+
+      <p class="data-note" id="dataNote"></p>
+    </section>
+
+    <section class="panel map-panel" aria-labelledby="mapTitle">
+      <div class="map-toolbar">
+        <div>
+          <span class="eyebrow">全国院校地图</span>
+          <h2 id="mapTitle">按省份查看高校分布</h2>
+        </div>
+        <div class="map-tools">
+          <button class="map-toggle" id="toggleMap" type="button" aria-pressed="false" title="收起地图" aria-label="收起地图">
+            <span class="toggle-icon" aria-hidden="true">▴</span>
+            <span>地图</span>
+          </button>
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="搜索学校、城市、主管部门">
+          </div>
+        </div>
+      </div>
+
+      <div class="atlas">
+        <div class="atlas-map" id="provinceMap" aria-label="省份高校分布图"></div>
+        <div class="atlas-side">
+          <div class="province-summary">
+            <span id="activeProvinceLabel">全国</span>
+            <strong id="activeProvinceTotal">2952</strong>
+            <small>所高校</small>
+          </div>
+          <div class="bars">
+            <div>
+              <label>本科</label>
+              <span class="bar"><i id="undergradBar"></i></span>
+              <em id="undergradCount">1412</em>
+            </div>
+            <div>
+              <label>专科</label>
+              <span class="bar"><i id="vocationalBar"></i></span>
+              <em id="vocationalCount">1540</em>
+            </div>
+          </div>
+          <div class="map-legend">
+            <span><i class="dot high"></i>高校密集</span>
+            <span><i class="dot mid"></i>区域中心</span>
+            <span><i class="dot low"></i>轻量覆盖</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-head">
+        <div>
+          <strong id="resultCount">0</strong>
+          <span>所匹配院校</span>
+        </div>
+        <select id="sortSelect" aria-label="排序">
+          <option value="fit">按匹配度</option>
+          <option value="scoreDesc">预测分从高到低</option>
+          <option value="scoreAsc">预测分从低到高</option>
+          <option value="name">按学校名称</option>
+        </select>
+      </div>
+      <div class="school-list" id="schoolList"></div>
+    </section>
+
+    <aside class="side-column">
+      <section class="panel recommend-panel" aria-labelledby="recommendTitle">
+        <div class="panel-heading">
+          <span class="eyebrow">智能推荐</span>
+          <h2 id="recommendTitle">冲稳保方案</h2>
+        </div>
+        <div class="segment" role="tablist" aria-label="推荐类别">
+          <button class="active" type="button" data-plan="rush">冲</button>
+          <button type="button" data-plan="steady">稳</button>
+          <button type="button" data-plan="safe">保</button>
+        </div>
+        <div class="strategy-meter">
+          <span id="rushMeter"></span>
+          <span id="steadyMeter"></span>
+          <span id="safeMeter"></span>
+        </div>
+        <div class="recommend-list" id="recommendList"></div>
+      </section>
+
+      <section class="panel riasec-panel" aria-labelledby="riasecTitle">
+        <div class="panel-heading">
+          <span class="eyebrow">兴趣测评</span>
+          <h2 id="riasecTitle">RIASEC 方向</h2>
+        </div>
+        <div class="riasec-grid" id="riasecGrid"></div>
+        <div class="riasec-result" id="riasecResult"></div>
+      </section>
+
+      <section class="panel major-panel" aria-labelledby="majorTitle">
+        <div class="panel-heading">
+          <span class="eyebrow">专业推荐</span>
+          <h2 id="majorTitle">适配专业</h2>
+        </div>
+        <div class="major-summary" id="majorSummary"></div>
+        <div class="major-list" id="majorList"></div>
+      </section>
+
+      <section class="panel basket-panel" aria-labelledby="basketTitle">
+        <div class="panel-heading compact">
+          <div>
+            <span class="eyebrow">志愿篮</span>
+            <h2 id="basketTitle">候选院校</h2>
+          </div>
+          <button class="text-button" id="clearBasket" type="button">清空</button>
+        </div>
+        <div class="basket-list" id="basketList"></div>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="schoolDialog" class="school-dialog">
+    <button class="dialog-close" id="closeDialog" type="button" aria-label="关闭">×</button>
+    <div id="dialogBody"></div>
+  </dialog>
+</body>
+</html>
